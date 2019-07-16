@@ -7,11 +7,8 @@ let value = 0;
 function draw(){
     fill(value);
     rect(25, 25, 50, 50);
-    triangle(150, 40, 200, 100, 100, 100);
+    triangle(125, 25, 150, 75, 100, 75);
 }
-
-
- 
 
 function random(){
     for (let i = 0; i < 100; i++) {
@@ -22,7 +19,8 @@ function random(){
 }
 
 function mouseDragged(){
-    random(ellipse (mouseX, mouseY, mouseY, mouseY));
+    // random(rect (mouseX, mouseY, mouseY, mouseY));
+    random(rect(25, 25, 30, 30));
     value = value + 5;
     if (value > 255){
         value = 0;
@@ -35,4 +33,25 @@ function mouseClicked() {
   } else {
     value = 0;
   }
+}
+
+// if (mouseIsPressed) {
+//   while((mouseX=50)(mouseY=50));
+//   mouseDragged();
+// } else {
+//   random(rect (mouseX, mouseY, mouseY, mouseY));
+//     value = value + 5;
+//     if (value > 255){
+//         value = 0;
+//     }
+//   ;
+// }
+
+let button;
+function buttons(){
+  createCanvas(100, 100);
+  background(0);
+  button = createButton("Rectangle");
+  button.position(20, 20);
+  button.mousePressed(mouseDragged());
 }
